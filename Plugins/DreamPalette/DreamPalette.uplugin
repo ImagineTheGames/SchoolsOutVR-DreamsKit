@@ -1,0 +1,18 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "Dream Palette (Kit stand-ins)",
+	"Description": "The Dream Palette as stand-ins: the same asset paths and Blueprint API as the real pieces in School's Out VR, built on stock engine classes so they work in the launcher Unreal Engine. In the game the same paths are the real pieces. Do not edit or add to this folder: the Dreams Forge uses the game's palette, not this copy.",
+	"Category": "Dream",
+	"CreatedBy": "Imagine Games, LLC",
+	"CreatedByURL": "https://imagine-games.com",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"EnabledByDefault": true,
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false
+}

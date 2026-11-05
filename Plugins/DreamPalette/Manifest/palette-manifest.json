@@ -1,0 +1,3682 @@
+{
+ "assets": [
+  {
+   "description": "The Dream API: score, time, players, messages, items, respawn and janitor calls.",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [
+    {
+     "inputs": [
+      {
+       "name": "Player",
+       "type": "object:/Script/Engine.PlayerState"
+      },
+      {
+       "name": "Points",
+       "type": "int"
+      }
+     ],
+     "name": "AddScore",
+     "outputs": []
+    },
+    {
+     "inputs": [
+      {
+       "name": "Player",
+       "type": "object:/Script/Engine.PlayerState"
+      }
+     ],
+     "name": "ClearBelt",
+     "outputs": []
+    },
+    {
+     "inputs": [
+      {
+       "name": "Outcome",
+       "type": "enum:/DreamPalette/API/E_DreamOutcome.E_DreamOutcome"
+      },
+      {
+       "name": "Winners",
+       "type": "object:/Script/Engine.PlayerState[]"
+      }
+     ],
+     "name": "EndDream",
+     "outputs": []
+    },
+    {
+     "inputs": [
+      {
+       "name": "Name",
+       "type": "string"
+      }
+     ],
+     "name": "GetDreamSetting",
+     "outputs": [
+      {
+       "name": "Value",
+       "type": "string"
+      }
+     ]
+    },
+    {
+     "inputs": [],
+     "name": "GetLocalPlayer",
+     "outputs": [
+      {
+       "name": "LocalPlayer",
+       "type": "struct:/DreamPalette/API/S_DreamPlayer.S_DreamPlayer"
+      }
+     ]
+    },
+    {
+     "inputs": [],
+     "name": "GetPlayers",
+     "outputs": [
+      {
+       "name": "Players",
+       "type": "struct:/DreamPalette/API/S_DreamPlayer.S_DreamPlayer[]"
+      }
+     ]
+    },
+    {
+     "inputs": [],
+     "name": "GetRemainingSeconds",
+     "outputs": [
+      {
+       "name": "Seconds",
+       "type": "float"
+      }
+     ]
+    },
+    {
+     "inputs": [
+      {
+       "name": "Player",
+       "type": "object:/Script/Engine.PlayerState"
+      }
+     ],
+     "name": "GetScore",
+     "outputs": [
+      {
+       "name": "Score",
+       "type": "int"
+      }
+     ]
+    },
+    {
+     "inputs": [
+      {
+       "name": "Player",
+       "type": "object:/Script/Engine.PlayerState"
+      },
+      {
+       "name": "ItemClass",
+       "type": "class:/Script/Engine.Actor"
+      }
+     ],
+     "name": "GiveItem",
+     "outputs": [
+      {
+       "name": "Given",
+       "type": "bool"
+      }
+     ]
+    },
+    {
+     "inputs": [
+      {
+       "name": "Sound",
+       "type": "object:/Script/Engine.SoundBase"
+      },
+      {
+       "name": "Location",
+       "type": "struct:/Script/CoreUObject.Vector"
+      },
+      {
+       "name": "Is2D",
+       "type": "bool"
+      }
+     ],
+     "name": "PlayDreamSound",
+     "outputs": []
+    },
+    {
+     "inputs": [
+      {
+       "name": "Player",
+       "type": "object:/Script/Engine.PlayerState"
+      },
+      {
+       "name": "AtStartTag",
+       "type": "name"
+      }
+     ],
+     "name": "RespawnPlayer",
+     "outputs": []
+    },
+    {
+     "inputs": [
+      {
+       "name": "Enabled",
+       "type": "bool"
+      }
+     ],
+     "name": "SetJanitorEnabled",
+     "outputs": []
+    },
+    {
+     "inputs": [
+      {
+       "name": "Player",
+       "type": "object:/Script/Engine.PlayerState"
+      }
+     ],
+     "name": "SetJanitorTarget",
+     "outputs": []
+    },
+    {
+     "inputs": [
+      {
+       "name": "Player",
+       "type": "object:/Script/Engine.PlayerState"
+      },
+      {
+       "name": "Points",
+       "type": "int"
+      }
+     ],
+     "name": "SetScore",
+     "outputs": []
+    },
+    {
+     "inputs": [
+      {
+       "name": "Text",
+       "type": "text"
+      },
+      {
+       "name": "Seconds",
+       "type": "float"
+      },
+      {
+       "name": "OnlyPlayer",
+       "type": "object:/Script/Engine.PlayerState"
+      }
+     ],
+     "name": "ShowMessage",
+     "outputs": []
+    },
+    {
+     "inputs": [
+      {
+       "name": "Player",
+       "type": "object:/Script/Engine.PlayerState"
+      },
+      {
+       "name": "Location",
+       "type": "struct:/Script/CoreUObject.Vector"
+      },
+      {
+       "name": "Rotation",
+       "type": "struct:/Script/CoreUObject.Rotator"
+      }
+     ],
+     "name": "TeleportPlayer",
+     "outputs": []
+    }
+   ],
+   "group": "API",
+   "kind": "Blueprint",
+   "parentClass": "/Script/Engine.BlueprintFunctionLibrary",
+   "path": "/DreamPalette/API/BFL_Dream",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.BlueprintFunctionLibrary",
+   "variables": []
+  },
+  {
+   "description": "Parent of a Dream game mode: override OnDreamStart, OnPlayerReady, OnPlayerCaught, OnDreamEnding and OnTick1s.",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [
+    {
+     "inputs": [
+      {
+       "name": "Outcome",
+       "type": "enum:/DreamPalette/API/E_DreamOutcome.E_DreamOutcome"
+      }
+     ],
+     "name": "OnDreamEnding",
+     "outputs": []
+    },
+    {
+     "inputs": [],
+     "name": "OnDreamStart",
+     "outputs": []
+    },
+    {
+     "inputs": [
+      {
+       "name": "PlayerIndex",
+       "type": "int"
+      }
+     ],
+     "name": "OnPlayerCaught",
+     "outputs": []
+    },
+    {
+     "inputs": [
+      {
+       "name": "PlayerIndex",
+       "type": "int"
+      },
+      {
+       "name": "PlayerName",
+       "type": "string"
+      }
+     ],
+     "name": "OnPlayerReady",
+     "outputs": []
+    },
+    {
+     "inputs": [
+      {
+       "name": "RemainingSeconds",
+       "type": "float"
+      }
+     ],
+     "name": "OnTick1s",
+     "outputs": []
+    }
+   ],
+   "group": "API",
+   "kind": "Blueprint",
+   "parentClass": "/Script/SchoolsOut.DreamGameMode",
+   "path": "/DreamPalette/API/BP_DreamGameMode",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": []
+  },
+  {
+   "description": "The kit version and palette hash of this Dream Palette.",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "API",
+   "kind": "Blueprint",
+   "parentClass": "/Script/Engine.PrimaryDataAsset",
+   "path": "/DreamPalette/API/DA_DreamKit",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.PrimaryDataAsset",
+   "variables": [
+    {
+     "access": "readwrite",
+     "category": "Default",
+     "default": "1.0",
+     "name": "KitVersion",
+     "type": "string"
+    },
+    {
+     "access": "readwrite",
+     "category": "Default",
+     "default": "",
+     "name": "PaletteSha256",
+     "type": "string"
+    }
+   ]
+  },
+  {
+   "description": "How a Dream ended: Win, Lose, Draw or Time.",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "API",
+   "kind": "UserDefinedEnum",
+   "parentClass": "",
+   "path": "/DreamPalette/API/E_DreamOutcome",
+   "purchasedViaParent": [],
+   "stubParent": "",
+   "variables": []
+  },
+  {
+   "description": "A player in a Dream: index, name, whether local, whether the janitor, and the player state.",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "API",
+   "kind": "UserDefinedStruct",
+   "parentClass": "",
+   "path": "/DreamPalette/API/S_DreamPlayer",
+   "purchasedViaParent": [],
+   "stubParent": "",
+   "variables": []
+  },
+  {
+   "description": "Atlas-textured school wall and floor material.",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "ArtKit",
+   "kind": "MaterialInstanceConstant",
+   "parentClass": "",
+   "path": "/DreamPalette/ArtKit/Materials/MI_ArtKit_EnvironmentAtlas",
+   "purchasedViaParent": [],
+   "stubParent": "",
+   "variables": []
+  },
+  {
+   "description": "Window glass.",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "ArtKit",
+   "kind": "MaterialInstanceConstant",
+   "parentClass": "",
+   "path": "/DreamPalette/ArtKit/Materials/MI_ArtKit_Glass",
+   "purchasedViaParent": [],
+   "stubParent": "",
+   "variables": []
+  },
+  {
+   "description": "The hub master material.",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "ArtKit",
+   "kind": "MaterialInstanceConstant",
+   "parentClass": "",
+   "path": "/DreamPalette/ArtKit/Materials/MI_ArtKit_HubMaster",
+   "purchasedViaParent": [],
+   "stubParent": "",
+   "variables": []
+  },
+  {
+   "description": "Hub metal detail.",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "ArtKit",
+   "kind": "MaterialInstanceConstant",
+   "parentClass": "",
+   "path": "/DreamPalette/ArtKit/Materials/MI_ArtKit_HubMetal",
+   "purchasedViaParent": [],
+   "stubParent": "",
+   "variables": []
+  },
+  {
+   "description": "Hub wood detail.",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "ArtKit",
+   "kind": "MaterialInstanceConstant",
+   "parentClass": "",
+   "path": "/DreamPalette/ArtKit/Materials/MI_ArtKit_HubWood",
+   "purchasedViaParent": [],
+   "stubParent": "",
+   "variables": []
+  },
+  {
+   "description": "Atlas-textured school prop material.",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "ArtKit",
+   "kind": "MaterialInstanceConstant",
+   "parentClass": "",
+   "path": "/DreamPalette/ArtKit/Materials/MI_ArtKit_PropAtlas",
+   "purchasedViaParent": [],
+   "stubParent": "",
+   "variables": []
+  },
+  {
+   "description": "A janitor voice line (Bark Ambient 01).",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "ArtKit",
+   "kind": "SoundWave",
+   "parentClass": "",
+   "path": "/DreamPalette/ArtKit/Sounds/Bark_Ambient_01",
+   "purchasedViaParent": [],
+   "stubParent": "",
+   "variables": []
+  },
+  {
+   "description": "A janitor voice line (Bark Ambient 02).",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "ArtKit",
+   "kind": "SoundWave",
+   "parentClass": "",
+   "path": "/DreamPalette/ArtKit/Sounds/Bark_Ambient_02",
+   "purchasedViaParent": [],
+   "stubParent": "",
+   "variables": []
+  },
+  {
+   "description": "A janitor voice line (Bark Ambient 03).",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "ArtKit",
+   "kind": "SoundWave",
+   "parentClass": "",
+   "path": "/DreamPalette/ArtKit/Sounds/Bark_Ambient_03",
+   "purchasedViaParent": [],
+   "stubParent": "",
+   "variables": []
+  },
+  {
+   "description": "A janitor voice line (Bark Ambient 04).",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "ArtKit",
+   "kind": "SoundWave",
+   "parentClass": "",
+   "path": "/DreamPalette/ArtKit/Sounds/Bark_Ambient_04",
+   "purchasedViaParent": [],
+   "stubParent": "",
+   "variables": []
+  },
+  {
+   "description": "A janitor voice line (Bark Ambient 05).",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "ArtKit",
+   "kind": "SoundWave",
+   "parentClass": "",
+   "path": "/DreamPalette/ArtKit/Sounds/Bark_Ambient_05",
+   "purchasedViaParent": [],
+   "stubParent": "",
+   "variables": []
+  },
+  {
+   "description": "A janitor voice line (Bark Catch 01).",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "ArtKit",
+   "kind": "SoundWave",
+   "parentClass": "",
+   "path": "/DreamPalette/ArtKit/Sounds/Bark_Catch_01",
+   "purchasedViaParent": [],
+   "stubParent": "",
+   "variables": []
+  },
+  {
+   "description": "A janitor voice line (Bark Catch 02).",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "ArtKit",
+   "kind": "SoundWave",
+   "parentClass": "",
+   "path": "/DreamPalette/ArtKit/Sounds/Bark_Catch_02",
+   "purchasedViaParent": [],
+   "stubParent": "",
+   "variables": []
+  },
+  {
+   "description": "A janitor voice line (Bark Catch 03).",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "ArtKit",
+   "kind": "SoundWave",
+   "parentClass": "",
+   "path": "/DreamPalette/ArtKit/Sounds/Bark_Catch_03",
+   "purchasedViaParent": [],
+   "stubParent": "",
+   "variables": []
+  },
+  {
+   "description": "A janitor voice line (Bark Catch 04).",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "ArtKit",
+   "kind": "SoundWave",
+   "parentClass": "",
+   "path": "/DreamPalette/ArtKit/Sounds/Bark_Catch_04",
+   "purchasedViaParent": [],
+   "stubParent": "",
+   "variables": []
+  },
+  {
+   "description": "A janitor voice line (Bark Catch 05).",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "ArtKit",
+   "kind": "SoundWave",
+   "parentClass": "",
+   "path": "/DreamPalette/ArtKit/Sounds/Bark_Catch_05",
+   "purchasedViaParent": [],
+   "stubParent": "",
+   "variables": []
+  },
+  {
+   "description": "A janitor voice line (Bark Hunt 01).",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "ArtKit",
+   "kind": "SoundWave",
+   "parentClass": "",
+   "path": "/DreamPalette/ArtKit/Sounds/Bark_Hunt_01",
+   "purchasedViaParent": [],
+   "stubParent": "",
+   "variables": []
+  },
+  {
+   "description": "A janitor voice line (Bark Hunt 02).",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "ArtKit",
+   "kind": "SoundWave",
+   "parentClass": "",
+   "path": "/DreamPalette/ArtKit/Sounds/Bark_Hunt_02",
+   "purchasedViaParent": [],
+   "stubParent": "",
+   "variables": []
+  },
+  {
+   "description": "A janitor voice line (Bark Hunt 03).",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "ArtKit",
+   "kind": "SoundWave",
+   "parentClass": "",
+   "path": "/DreamPalette/ArtKit/Sounds/Bark_Hunt_03",
+   "purchasedViaParent": [],
+   "stubParent": "",
+   "variables": []
+  },
+  {
+   "description": "A janitor voice line (Bark Hunt 04).",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "ArtKit",
+   "kind": "SoundWave",
+   "parentClass": "",
+   "path": "/DreamPalette/ArtKit/Sounds/Bark_Hunt_04",
+   "purchasedViaParent": [],
+   "stubParent": "",
+   "variables": []
+  },
+  {
+   "description": "A janitor voice line (Bark Hunt 05).",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "ArtKit",
+   "kind": "SoundWave",
+   "parentClass": "",
+   "path": "/DreamPalette/ArtKit/Sounds/Bark_Hunt_05",
+   "purchasedViaParent": [],
+   "stubParent": "",
+   "variables": []
+  },
+  {
+   "description": "A janitor voice line (Bark Slipped 01).",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "ArtKit",
+   "kind": "SoundWave",
+   "parentClass": "",
+   "path": "/DreamPalette/ArtKit/Sounds/Bark_Slipped_01",
+   "purchasedViaParent": [],
+   "stubParent": "",
+   "variables": []
+  },
+  {
+   "description": "A janitor voice line (Bark Slipped 02).",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "ArtKit",
+   "kind": "SoundWave",
+   "parentClass": "",
+   "path": "/DreamPalette/ArtKit/Sounds/Bark_Slipped_02",
+   "purchasedViaParent": [],
+   "stubParent": "",
+   "variables": []
+  },
+  {
+   "description": "A janitor voice line (Bark Slipped 03).",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "ArtKit",
+   "kind": "SoundWave",
+   "parentClass": "",
+   "path": "/DreamPalette/ArtKit/Sounds/Bark_Slipped_03",
+   "purchasedViaParent": [],
+   "stubParent": "",
+   "variables": []
+  },
+  {
+   "description": "A janitor voice line (Bark Slipped 04).",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "ArtKit",
+   "kind": "SoundWave",
+   "parentClass": "",
+   "path": "/DreamPalette/ArtKit/Sounds/Bark_Slipped_04",
+   "purchasedViaParent": [],
+   "stubParent": "",
+   "variables": []
+  },
+  {
+   "description": "A janitor voice line (Bark Slipped 05).",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "ArtKit",
+   "kind": "SoundWave",
+   "parentClass": "",
+   "path": "/DreamPalette/ArtKit/Sounds/Bark_Slipped_05",
+   "purchasedViaParent": [],
+   "stubParent": "",
+   "variables": []
+  },
+  {
+   "description": "An invisible box the player can climb: scale it to fit any surface.",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "Climbing",
+   "kind": "Blueprint",
+   "parentClass": "/Script/Engine.Actor",
+   "path": "/DreamPalette/Climb/BP_ClimbVolume",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": []
+  },
+  {
+   "description": "A 3 m downspout the player can climb.",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "Climbing",
+   "kind": "Blueprint",
+   "parentClass": "/Game/SchoolsOut/Blueprints/Roof/BP_Roof_Downspout_3m.BP_Roof_Downspout_3m_C",
+   "path": "/DreamPalette/Climb/BP_Downspout_3m",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": []
+  },
+  {
+   "description": "A 6 m downspout the player can climb.",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "Climbing",
+   "kind": "Blueprint",
+   "parentClass": "/Game/SchoolsOut/Blueprints/Roof/BP_Roof_Downspout_6m.BP_Roof_Downspout_6m_C",
+   "path": "/DreamPalette/Climb/BP_Downspout_6m",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": []
+  },
+  {
+   "description": "A duct elbow that joins a riser to a wall.",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "Climbing",
+   "kind": "Blueprint",
+   "parentClass": "/Game/SchoolsOut/Blueprints/Roof/BP_Duct_ElbowDown.BP_Duct_ElbowDown_C",
+   "path": "/DreamPalette/Climb/BP_DuctElbow",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": []
+  },
+  {
+   "description": "A 1.5 m duct riser the player can climb.",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "Climbing",
+   "kind": "Blueprint",
+   "parentClass": "/Game/SchoolsOut/Blueprints/Roof/BP_Duct_Riser_1_5m.BP_Duct_Riser_1_5m_C",
+   "path": "/DreamPalette/Climb/BP_DuctRiser_1_5m",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": []
+  },
+  {
+   "description": "A 3 m duct riser the player can climb.",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "Climbing",
+   "kind": "Blueprint",
+   "parentClass": "/Game/SchoolsOut/Blueprints/Roof/BP_Duct_Riser_3m.BP_Duct_Riser_3m_C",
+   "path": "/DreamPalette/Climb/BP_DuctRiser_3m",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": []
+  },
+  {
+   "description": "A 3 m ladder the player can climb.",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "Climbing",
+   "kind": "Blueprint",
+   "parentClass": "/Game/SchoolsOut/Blueprints/Roof/BP_Roof_Ladder_3m.BP_Roof_Ladder_3m_C",
+   "path": "/DreamPalette/Climb/BP_Ladder_3m",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": []
+  },
+  {
+   "description": "A 6 m ladder the player can climb.",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "Climbing",
+   "kind": "Blueprint",
+   "parentClass": "/Game/SchoolsOut/Blueprints/Roof/BP_Roof_Ladder_6m.BP_Roof_Ladder_6m_C",
+   "path": "/DreamPalette/Climb/BP_Ladder_6m",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": []
+  },
+  {
+   "description": "A 2 m roof parapet the player can climb over.",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "Climbing",
+   "kind": "Blueprint",
+   "parentClass": "/Game/SchoolsOut/Blueprints/Roof/BP_Roof_Parapet_Climbable_2m.BP_Roof_Parapet_Climbable_2m_C",
+   "path": "/DreamPalette/Climb/BP_Parapet_2m",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": []
+  },
+  {
+   "description": "A push button on a pedestal; OnPressed fires when it is pressed.",
+   "directPurchasedRefs": [],
+   "dispatchers": [
+    {
+     "name": "OnPressed",
+     "params": []
+    }
+   ],
+   "functions": [],
+   "group": "Devices",
+   "kind": "Blueprint",
+   "parentClass": "/Script/Engine.Actor",
+   "path": "/DreamPalette/Devices/BP_DreamButton",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": []
+  },
+  {
+   "description": "",
+   "directPurchasedRefs": [],
+   "dispatchers": [
+    {
+     "name": "OnAllReached",
+     "params": [
+      {
+       "name": "Player",
+       "type": "object:/Script/Engine.PlayerState"
+      }
+     ]
+    },
+    {
+     "name": "OnReached",
+     "params": [
+      {
+       "name": "Player",
+       "type": "object:/Script/Engine.PlayerState"
+      },
+      {
+       "name": "Index",
+       "type": "int"
+      }
+     ]
+    }
+   ],
+   "functions": [
+    {
+     "inputs": [
+      {
+       "name": "MatchGroup",
+       "type": "name"
+      },
+      {
+       "name": "MatchIndex",
+       "type": "int"
+      },
+      {
+       "name": "Who",
+       "type": "object:/Script/Engine.PlayerState"
+      }
+     ],
+     "name": "Matches",
+     "outputs": [
+      {
+       "name": "Result",
+       "type": "bool"
+      },
+      {
+       "name": "Result",
+       "type": "bool"
+      },
+      {
+       "name": "Result",
+       "type": "bool"
+      },
+      {
+       "name": "Result",
+       "type": "bool"
+      }
+     ]
+    },
+    {
+     "inputs": [
+      {
+       "name": "Who",
+       "type": "object:/Script/Engine.PlayerState"
+      }
+     ],
+     "name": "PrevReached",
+     "outputs": [
+      {
+       "name": "PrevOk",
+       "type": "bool"
+      }
+     ]
+    }
+   ],
+   "group": "",
+   "kind": "Blueprint",
+   "parentClass": "/Script/Engine.Actor",
+   "path": "/DreamPalette/Devices/BP_DreamCheckpoint",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": [
+    {
+     "access": "readwrite",
+     "category": "Dream",
+     "default": true,
+     "name": "Enabled",
+     "type": "bool"
+    },
+    {
+     "access": "readwrite",
+     "category": "Dream",
+     "default": "Course",
+     "name": "Group",
+     "type": "name"
+    },
+    {
+     "access": "readwrite",
+     "category": "Dream",
+     "default": 1,
+     "name": "Index",
+     "type": "int"
+    },
+    {
+     "access": "readwrite",
+     "category": "Dream",
+     "default": false,
+     "name": "bIsFinal",
+     "type": "bool"
+    }
+   ]
+  },
+  {
+   "description": "",
+   "directPurchasedRefs": [],
+   "dispatchers": [
+    {
+     "name": "OnActivated",
+     "params": []
+    }
+   ],
+   "functions": [],
+   "group": "",
+   "kind": "Blueprint",
+   "parentClass": "/Script/Engine.Actor",
+   "path": "/DreamPalette/Devices/BP_DreamDoorSwitch",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": [
+    {
+     "access": "readwrite",
+     "category": "Dream",
+     "default": null,
+     "name": "Door",
+     "type": "object:/DreamPalette/Entry/BP_Door_Single.BP_Door_Single_C"
+    },
+    {
+     "access": "readwrite",
+     "category": "Dream",
+     "default": true,
+     "name": "Enabled",
+     "type": "bool"
+    }
+   ]
+  },
+  {
+   "description": "",
+   "directPurchasedRefs": [],
+   "dispatchers": [
+    {
+     "name": "OnSpawned",
+     "params": [
+      {
+       "name": "Item",
+       "type": "object:/Script/Engine.Actor"
+      }
+     ]
+    }
+   ],
+   "functions": [
+    {
+     "inputs": [],
+     "name": "SpawnTick",
+     "outputs": []
+    }
+   ],
+   "group": "",
+   "kind": "Blueprint",
+   "parentClass": "/Script/Engine.Actor",
+   "path": "/DreamPalette/Devices/BP_DreamItemSpawner",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": [
+    {
+     "access": "readwrite",
+     "category": "Dream",
+     "default": 5.0,
+     "name": "IntervalSeconds",
+     "type": "float"
+    },
+    {
+     "access": "readwrite",
+     "category": "Dream",
+     "default": 3,
+     "name": "MaxAlive",
+     "type": "int"
+    }
+   ]
+  },
+  {
+   "description": "",
+   "directPurchasedRefs": [],
+   "dispatchers": [
+    {
+     "name": "OnKilled",
+     "params": [
+      {
+       "name": "Player",
+       "type": "object:/Script/Engine.PlayerState"
+      }
+     ]
+    }
+   ],
+   "functions": [],
+   "group": "",
+   "kind": "Blueprint",
+   "parentClass": "/Script/Engine.Actor",
+   "path": "/DreamPalette/Devices/BP_DreamKillVolume",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": [
+    {
+     "access": "readwrite",
+     "category": "Dream",
+     "default": true,
+     "name": "Enabled",
+     "type": "bool"
+    },
+    {
+     "access": "readwrite",
+     "category": "Dream",
+     "default": "None",
+     "name": "RespawnTag",
+     "type": "name"
+    }
+   ]
+  },
+  {
+   "description": "",
+   "directPurchasedRefs": [],
+   "dispatchers": [
+    {
+     "name": "OnStateChanged",
+     "params": [
+      {
+       "name": "IsOn",
+       "type": "bool"
+      }
+     ]
+    }
+   ],
+   "functions": [],
+   "group": "",
+   "kind": "Blueprint",
+   "parentClass": "/Script/Engine.Actor",
+   "path": "/DreamPalette/Devices/BP_DreamLever",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": [
+    {
+     "access": "readwrite",
+     "category": "Dream",
+     "default": true,
+     "name": "Enabled",
+     "type": "bool"
+    }
+   ]
+  },
+  {
+   "description": "",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [
+    {
+     "inputs": [],
+     "name": "OnRep_bOn",
+     "outputs": []
+    },
+    {
+     "inputs": [
+      {
+       "name": "NewOn",
+       "type": "bool"
+      }
+     ],
+     "name": "SetOn",
+     "outputs": []
+    },
+    {
+     "inputs": [],
+     "name": "Toggle",
+     "outputs": []
+    }
+   ],
+   "group": "",
+   "kind": "Blueprint",
+   "parentClass": "/Script/Engine.Actor",
+   "path": "/DreamPalette/Devices/BP_DreamLight",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": [
+    {
+     "access": "readwrite",
+     "category": "Dream",
+     "default": 2000.0,
+     "name": "BaseIntensity",
+     "type": "float"
+    },
+    {
+     "access": "readwrite",
+     "category": "Dream",
+     "default": 0.0,
+     "name": "FlickerHz",
+     "type": "float"
+    },
+    {
+     "access": "readwrite",
+     "category": "Dream",
+     "default": false,
+     "name": "bDim",
+     "type": "bool"
+    },
+    {
+     "access": "readwrite",
+     "category": "Dream",
+     "default": true,
+     "name": "bOn",
+     "type": "bool"
+    }
+   ]
+  },
+  {
+   "description": "",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [
+    {
+     "inputs": [],
+     "name": "ClearMessage",
+     "outputs": []
+    },
+    {
+     "inputs": [],
+     "name": "OnRep_DisplayText",
+     "outputs": []
+    },
+    {
+     "inputs": [
+      {
+       "name": "NewText",
+       "type": "text"
+      }
+     ],
+     "name": "SetMessage",
+     "outputs": []
+    }
+   ],
+   "group": "",
+   "kind": "Blueprint",
+   "parentClass": "/Script/Engine.Actor",
+   "path": "/DreamPalette/Devices/BP_DreamMessageBoard",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": [
+    {
+     "access": "readwrite",
+     "category": "Dream|Board",
+     "default": "",
+     "name": "DisplayText",
+     "type": "text"
+    }
+   ]
+  },
+  {
+   "description": "",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "",
+   "kind": "Blueprint",
+   "parentClass": "/Script/Engine.Actor",
+   "path": "/DreamPalette/Devices/BP_DreamMovingPlatform",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": [
+    {
+     "access": "readwrite",
+     "category": "Dream",
+     "default": 100.0,
+     "name": "Speed",
+     "type": "float"
+    }
+   ]
+  },
+  {
+   "description": "",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [
+    {
+     "inputs": [],
+     "name": "OnRep_DisplayText",
+     "outputs": []
+    },
+    {
+     "inputs": [],
+     "name": "RefreshBoard",
+     "outputs": []
+    }
+   ],
+   "group": "",
+   "kind": "Blueprint",
+   "parentClass": "/Script/Engine.Actor",
+   "path": "/DreamPalette/Devices/BP_DreamScoreBoard",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": [
+    {
+     "access": "readwrite",
+     "category": "Dream|Board",
+     "default": "",
+     "name": "DisplayText",
+     "type": "text"
+    }
+   ]
+  },
+  {
+   "description": "",
+   "directPurchasedRefs": [],
+   "dispatchers": [
+    {
+     "name": "OnScored",
+     "params": [
+      {
+       "name": "Item",
+       "type": "object:/Script/Engine.Actor"
+      }
+     ]
+    }
+   ],
+   "functions": [],
+   "group": "",
+   "kind": "Blueprint",
+   "parentClass": "/Script/Engine.Actor",
+   "path": "/DreamPalette/Devices/BP_DreamScoreZone",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": [
+    {
+     "access": "readwrite",
+     "category": "Dream",
+     "default": true,
+     "name": "Enabled",
+     "type": "bool"
+    },
+    {
+     "access": "readwrite",
+     "category": "Dream",
+     "default": 1,
+     "name": "Points",
+     "type": "int"
+    },
+    {
+     "access": "readwrite",
+     "category": "Dream",
+     "default": "Score",
+     "name": "ScoreTag",
+     "type": "name"
+    },
+    {
+     "access": "readwrite",
+     "category": "Dream",
+     "default": 0,
+     "name": "ScoredCount",
+     "type": "int"
+    },
+    {
+     "access": "readwrite",
+     "category": "Dream",
+     "default": true,
+     "name": "bConsume",
+     "type": "bool"
+    }
+   ]
+  },
+  {
+   "description": "",
+   "directPurchasedRefs": [],
+   "dispatchers": [
+    {
+     "name": "OnTeleported",
+     "params": [
+      {
+       "name": "Player",
+       "type": "object:/Script/Engine.PlayerState"
+      }
+     ]
+    }
+   ],
+   "functions": [],
+   "group": "",
+   "kind": "Blueprint",
+   "parentClass": "/Script/Engine.Actor",
+   "path": "/DreamPalette/Devices/BP_DreamTeleportPad",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": [
+    {
+     "access": "readwrite",
+     "category": "Dream",
+     "default": 1.5,
+     "name": "CooldownSeconds",
+     "type": "float"
+    },
+    {
+     "access": "readwrite",
+     "category": "Dream",
+     "default": true,
+     "name": "Enabled",
+     "type": "bool"
+    },
+    {
+     "access": "readwrite",
+     "category": "Dream",
+     "default": false,
+     "name": "bCooling",
+     "type": "bool"
+    }
+   ]
+  },
+  {
+   "description": "",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [
+    {
+     "inputs": [],
+     "name": "OnRep_DisplayText",
+     "outputs": []
+    },
+    {
+     "inputs": [],
+     "name": "RefreshBoard",
+     "outputs": []
+    }
+   ],
+   "group": "",
+   "kind": "Blueprint",
+   "parentClass": "/Script/Engine.Actor",
+   "path": "/DreamPalette/Devices/BP_DreamTimerBoard",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": [
+    {
+     "access": "readwrite",
+     "category": "Dream|Board",
+     "default": "",
+     "name": "DisplayText",
+     "type": "text"
+    }
+   ]
+  },
+  {
+   "description": "",
+   "directPurchasedRefs": [],
+   "dispatchers": [
+    {
+     "name": "OnPlayerEnter",
+     "params": [
+      {
+       "name": "Player",
+       "type": "object:/Script/Engine.PlayerState"
+      }
+     ]
+    },
+    {
+     "name": "OnPlayerExit",
+     "params": [
+      {
+       "name": "Player",
+       "type": "object:/Script/Engine.PlayerState"
+      }
+     ]
+    }
+   ],
+   "functions": [],
+   "group": "",
+   "kind": "Blueprint",
+   "parentClass": "/Script/Engine.Actor",
+   "path": "/DreamPalette/Devices/BP_DreamTrigger",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": [
+    {
+     "access": "readwrite",
+     "category": "Dream",
+     "default": true,
+     "name": "Enabled",
+     "type": "bool"
+    }
+   ]
+  },
+  {
+   "description": "",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "",
+   "kind": "WidgetBlueprint",
+   "parentClass": "",
+   "path": "/DreamPalette/Devices/WBP_DreamBoard",
+   "purchasedViaParent": [],
+   "stubParent": "",
+   "variables": []
+  },
+  {
+   "description": "A door key: opens any locked door or window.",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "Entry points",
+   "kind": "Blueprint",
+   "parentClass": "/Game/SchoolsOut/Blueprints/Items/BP_DoorEntryKey.BP_DoorEntryKey_C",
+   "path": "/DreamPalette/Entry/BP_DoorKey",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": [
+    {
+     "access": "readwrite",
+     "category": "Native|SOItem",
+     "default": 0.019999999552965164,
+     "name": "MassKg",
+     "type": "float"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOItem",
+     "default": true,
+     "name": "bAllowDistanceGrab",
+     "type": "bool"
+    }
+   ]
+  },
+  {
+   "description": "A double door that can be locked, unlocked, opened and broken.",
+   "directPurchasedRefs": [],
+   "dispatchers": [
+    {
+     "name": "OnEntryPointBroken",
+     "params": []
+    },
+    {
+     "name": "OnEntryPointClosed",
+     "params": []
+    },
+    {
+     "name": "OnEntryPointLocked",
+     "params": []
+    },
+    {
+     "name": "OnEntryPointOpened",
+     "params": []
+    },
+    {
+     "name": "OnEntryPointUnlocked",
+     "params": []
+    }
+   ],
+   "functions": [
+    {
+     "inputs": [
+      {
+       "name": "Damage",
+       "type": "float"
+      },
+      {
+       "name": "DamageCauser",
+       "type": "actor"
+      }
+     ],
+     "name": "ApplyBreakDamage",
+     "outputs": []
+    },
+    {
+     "inputs": [],
+     "name": "Lock",
+     "outputs": []
+    },
+    {
+     "inputs": [
+      {
+       "name": "bNewOpen",
+       "type": "bool"
+      }
+     ],
+     "name": "SetOpen",
+     "outputs": []
+    },
+    {
+     "inputs": [
+      {
+       "name": "ByActor",
+       "type": "actor"
+      }
+     ],
+     "name": "TryUnlock",
+     "outputs": [
+      {
+       "name": "ReturnValue",
+       "type": "bool"
+      }
+     ]
+    }
+   ],
+   "group": "Entry points",
+   "kind": "Blueprint",
+   "parentClass": "/Game/SchoolsOut/Blueprints/Entry/BP_SODoor_Double.BP_SODoor_Double_C",
+   "path": "/DreamPalette/Entry/BP_Door_Double",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": [
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": -1,
+     "name": "CashRewardOverride",
+     "type": "int"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": 100.0,
+     "name": "Health",
+     "type": "float"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOEntryPoint",
+     "default": 100.0,
+     "name": "MaxHealth",
+     "type": "float"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": false,
+     "name": "bBroken",
+     "type": "bool"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": false,
+     "name": "bLocked",
+     "type": "bool"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": false,
+     "name": "bOpen",
+     "type": "bool"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": false,
+     "name": "bRequiresJanitorKey",
+     "type": "bool"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": false,
+     "name": "bStartsOpen",
+     "type": "bool"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOEntryPoint",
+     "default": false,
+     "name": "bUnbreakable",
+     "type": "bool"
+    }
+   ]
+  },
+  {
+   "description": "A single door that can be locked, unlocked, opened and broken.",
+   "directPurchasedRefs": [],
+   "dispatchers": [
+    {
+     "name": "OnEntryPointBroken",
+     "params": []
+    },
+    {
+     "name": "OnEntryPointClosed",
+     "params": []
+    },
+    {
+     "name": "OnEntryPointLocked",
+     "params": []
+    },
+    {
+     "name": "OnEntryPointOpened",
+     "params": []
+    },
+    {
+     "name": "OnEntryPointUnlocked",
+     "params": []
+    }
+   ],
+   "functions": [
+    {
+     "inputs": [
+      {
+       "name": "Damage",
+       "type": "float"
+      },
+      {
+       "name": "DamageCauser",
+       "type": "actor"
+      }
+     ],
+     "name": "ApplyBreakDamage",
+     "outputs": []
+    },
+    {
+     "inputs": [],
+     "name": "Lock",
+     "outputs": []
+    },
+    {
+     "inputs": [
+      {
+       "name": "bNewOpen",
+       "type": "bool"
+      }
+     ],
+     "name": "SetOpen",
+     "outputs": []
+    },
+    {
+     "inputs": [
+      {
+       "name": "ByActor",
+       "type": "actor"
+      }
+     ],
+     "name": "TryUnlock",
+     "outputs": [
+      {
+       "name": "ReturnValue",
+       "type": "bool"
+      }
+     ]
+    }
+   ],
+   "group": "Entry points",
+   "kind": "Blueprint",
+   "parentClass": "/Game/SchoolsOut/Blueprints/Entry/BP_SODoor_Single.BP_SODoor_Single_C",
+   "path": "/DreamPalette/Entry/BP_Door_Single",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": [
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": -1,
+     "name": "CashRewardOverride",
+     "type": "int"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": 100.0,
+     "name": "Health",
+     "type": "float"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOEntryPoint",
+     "default": 100.0,
+     "name": "MaxHealth",
+     "type": "float"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": false,
+     "name": "bBroken",
+     "type": "bool"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": false,
+     "name": "bLocked",
+     "type": "bool"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": false,
+     "name": "bOpen",
+     "type": "bool"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": false,
+     "name": "bRequiresJanitorKey",
+     "type": "bool"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": false,
+     "name": "bStartsOpen",
+     "type": "bool"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOEntryPoint",
+     "default": false,
+     "name": "bUnbreakable",
+     "type": "bool"
+    }
+   ]
+  },
+  {
+   "description": "A ceiling vent cover that can be pried off.",
+   "directPurchasedRefs": [],
+   "dispatchers": [
+    {
+     "name": "OnEntryPointBroken",
+     "params": []
+    },
+    {
+     "name": "OnEntryPointClosed",
+     "params": []
+    },
+    {
+     "name": "OnEntryPointLocked",
+     "params": []
+    },
+    {
+     "name": "OnEntryPointOpened",
+     "params": []
+    },
+    {
+     "name": "OnEntryPointUnlocked",
+     "params": []
+    }
+   ],
+   "functions": [
+    {
+     "inputs": [
+      {
+       "name": "Damage",
+       "type": "float"
+      },
+      {
+       "name": "DamageCauser",
+       "type": "actor"
+      }
+     ],
+     "name": "ApplyBreakDamage",
+     "outputs": []
+    },
+    {
+     "inputs": [],
+     "name": "Lock",
+     "outputs": []
+    },
+    {
+     "inputs": [
+      {
+       "name": "bNewOpen",
+       "type": "bool"
+      }
+     ],
+     "name": "SetOpen",
+     "outputs": []
+    },
+    {
+     "inputs": [
+      {
+       "name": "ByActor",
+       "type": "actor"
+      }
+     ],
+     "name": "TryUnlock",
+     "outputs": [
+      {
+       "name": "ReturnValue",
+       "type": "bool"
+      }
+     ]
+    }
+   ],
+   "group": "Entry points",
+   "kind": "Blueprint",
+   "parentClass": "/Game/SchoolsOut/Blueprints/Roof/BP_SOVentCover_Ceiling.BP_SOVentCover_Ceiling_C",
+   "path": "/DreamPalette/Entry/BP_VentCover_Ceiling",
+   "purchasedViaParent": [
+    "/Game/Crash_and_Smash-Designed/cues/metal_crash_designed_001_Cue",
+    "/Game/Crash_and_Smash-Designed/wavs/metal_crash_designed_001",
+    "/Game/ProSoundCollectionMONO/GunsWeapons/Bullets/Cues/bullet_impact_metal_heavy_01_Cue",
+    "/Game/ProSoundCollectionMONO/GunsWeapons/Bullets/Wavs/bullet_impact_metal_heavy_01"
+   ],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": [
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": -1,
+     "name": "CashRewardOverride",
+     "type": "int"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": 100.0,
+     "name": "Health",
+     "type": "float"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOEntryPoint",
+     "default": 60.0,
+     "name": "MaxHealth",
+     "type": "float"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": false,
+     "name": "bBroken",
+     "type": "bool"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": true,
+     "name": "bLocked",
+     "type": "bool"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": false,
+     "name": "bOpen",
+     "type": "bool"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": false,
+     "name": "bRequiresJanitorKey",
+     "type": "bool"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": false,
+     "name": "bStartsOpen",
+     "type": "bool"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOEntryPoint",
+     "default": false,
+     "name": "bUnbreakable",
+     "type": "bool"
+    }
+   ]
+  },
+  {
+   "description": "A roof intake vent cover that can be pried off.",
+   "directPurchasedRefs": [],
+   "dispatchers": [
+    {
+     "name": "OnEntryPointBroken",
+     "params": []
+    },
+    {
+     "name": "OnEntryPointClosed",
+     "params": []
+    },
+    {
+     "name": "OnEntryPointLocked",
+     "params": []
+    },
+    {
+     "name": "OnEntryPointOpened",
+     "params": []
+    },
+    {
+     "name": "OnEntryPointUnlocked",
+     "params": []
+    }
+   ],
+   "functions": [
+    {
+     "inputs": [
+      {
+       "name": "Damage",
+       "type": "float"
+      },
+      {
+       "name": "DamageCauser",
+       "type": "actor"
+      }
+     ],
+     "name": "ApplyBreakDamage",
+     "outputs": []
+    },
+    {
+     "inputs": [],
+     "name": "Lock",
+     "outputs": []
+    },
+    {
+     "inputs": [
+      {
+       "name": "bNewOpen",
+       "type": "bool"
+      }
+     ],
+     "name": "SetOpen",
+     "outputs": []
+    },
+    {
+     "inputs": [
+      {
+       "name": "ByActor",
+       "type": "actor"
+      }
+     ],
+     "name": "TryUnlock",
+     "outputs": [
+      {
+       "name": "ReturnValue",
+       "type": "bool"
+      }
+     ]
+    }
+   ],
+   "group": "Entry points",
+   "kind": "Blueprint",
+   "parentClass": "/Game/SchoolsOut/Blueprints/Roof/BP_SOVentCover_Intake.BP_SOVentCover_Intake_C",
+   "path": "/DreamPalette/Entry/BP_VentCover_Intake",
+   "purchasedViaParent": [
+    "/Game/Crash_and_Smash-Designed/cues/metal_crash_designed_001_Cue",
+    "/Game/Crash_and_Smash-Designed/wavs/metal_crash_designed_001",
+    "/Game/ProSoundCollectionMONO/GunsWeapons/Bullets/Cues/bullet_impact_metal_heavy_01_Cue",
+    "/Game/ProSoundCollectionMONO/GunsWeapons/Bullets/Wavs/bullet_impact_metal_heavy_01"
+   ],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": [
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": -1,
+     "name": "CashRewardOverride",
+     "type": "int"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": 100.0,
+     "name": "Health",
+     "type": "float"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOEntryPoint",
+     "default": 60.0,
+     "name": "MaxHealth",
+     "type": "float"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": false,
+     "name": "bBroken",
+     "type": "bool"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": true,
+     "name": "bLocked",
+     "type": "bool"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": false,
+     "name": "bOpen",
+     "type": "bool"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": false,
+     "name": "bRequiresJanitorKey",
+     "type": "bool"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": false,
+     "name": "bStartsOpen",
+     "type": "bool"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOEntryPoint",
+     "default": false,
+     "name": "bUnbreakable",
+     "type": "bool"
+    }
+   ]
+  },
+  {
+   "description": "A wall vent cover that can be pried off.",
+   "directPurchasedRefs": [],
+   "dispatchers": [
+    {
+     "name": "OnEntryPointBroken",
+     "params": []
+    },
+    {
+     "name": "OnEntryPointClosed",
+     "params": []
+    },
+    {
+     "name": "OnEntryPointLocked",
+     "params": []
+    },
+    {
+     "name": "OnEntryPointOpened",
+     "params": []
+    },
+    {
+     "name": "OnEntryPointUnlocked",
+     "params": []
+    }
+   ],
+   "functions": [
+    {
+     "inputs": [
+      {
+       "name": "Damage",
+       "type": "float"
+      },
+      {
+       "name": "DamageCauser",
+       "type": "actor"
+      }
+     ],
+     "name": "ApplyBreakDamage",
+     "outputs": []
+    },
+    {
+     "inputs": [],
+     "name": "Lock",
+     "outputs": []
+    },
+    {
+     "inputs": [
+      {
+       "name": "bNewOpen",
+       "type": "bool"
+      }
+     ],
+     "name": "SetOpen",
+     "outputs": []
+    },
+    {
+     "inputs": [
+      {
+       "name": "ByActor",
+       "type": "actor"
+      }
+     ],
+     "name": "TryUnlock",
+     "outputs": [
+      {
+       "name": "ReturnValue",
+       "type": "bool"
+      }
+     ]
+    }
+   ],
+   "group": "Entry points",
+   "kind": "Blueprint",
+   "parentClass": "/Game/SchoolsOut/Blueprints/Roof/BP_SOVentCover_Wall.BP_SOVentCover_Wall_C",
+   "path": "/DreamPalette/Entry/BP_VentCover_Wall",
+   "purchasedViaParent": [
+    "/Game/Crash_and_Smash-Designed/cues/metal_crash_designed_001_Cue",
+    "/Game/Crash_and_Smash-Designed/wavs/metal_crash_designed_001",
+    "/Game/ProSoundCollectionMONO/GunsWeapons/Bullets/Cues/bullet_impact_metal_heavy_01_Cue",
+    "/Game/ProSoundCollectionMONO/GunsWeapons/Bullets/Wavs/bullet_impact_metal_heavy_01"
+   ],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": [
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": -1,
+     "name": "CashRewardOverride",
+     "type": "int"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": 100.0,
+     "name": "Health",
+     "type": "float"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOEntryPoint",
+     "default": 60.0,
+     "name": "MaxHealth",
+     "type": "float"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": false,
+     "name": "bBroken",
+     "type": "bool"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": true,
+     "name": "bLocked",
+     "type": "bool"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": false,
+     "name": "bOpen",
+     "type": "bool"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": false,
+     "name": "bRequiresJanitorKey",
+     "type": "bool"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": false,
+     "name": "bStartsOpen",
+     "type": "bool"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOEntryPoint",
+     "default": false,
+     "name": "bUnbreakable",
+     "type": "bool"
+    }
+   ]
+  },
+  {
+   "description": "A window that can be locked, opened and smashed.",
+   "directPurchasedRefs": [],
+   "dispatchers": [
+    {
+     "name": "OnEntryPointBroken",
+     "params": []
+    },
+    {
+     "name": "OnEntryPointClosed",
+     "params": []
+    },
+    {
+     "name": "OnEntryPointLocked",
+     "params": []
+    },
+    {
+     "name": "OnEntryPointOpened",
+     "params": []
+    },
+    {
+     "name": "OnEntryPointUnlocked",
+     "params": []
+    }
+   ],
+   "functions": [
+    {
+     "inputs": [
+      {
+       "name": "Damage",
+       "type": "float"
+      },
+      {
+       "name": "DamageCauser",
+       "type": "actor"
+      }
+     ],
+     "name": "ApplyBreakDamage",
+     "outputs": []
+    },
+    {
+     "inputs": [],
+     "name": "Lock",
+     "outputs": []
+    },
+    {
+     "inputs": [
+      {
+       "name": "bNewOpen",
+       "type": "bool"
+      }
+     ],
+     "name": "SetOpen",
+     "outputs": []
+    },
+    {
+     "inputs": [
+      {
+       "name": "ByActor",
+       "type": "actor"
+      }
+     ],
+     "name": "TryUnlock",
+     "outputs": [
+      {
+       "name": "ReturnValue",
+       "type": "bool"
+      }
+     ]
+    }
+   ],
+   "group": "Entry points",
+   "kind": "Blueprint",
+   "parentClass": "/Game/SchoolsOut/Blueprints/Entry/BP_SOWindow_0.BP_SOWindow_0_C",
+   "path": "/DreamPalette/Entry/BP_Window",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": [
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": -1,
+     "name": "CashRewardOverride",
+     "type": "int"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": 100.0,
+     "name": "Health",
+     "type": "float"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOEntryPoint",
+     "default": 25.0,
+     "name": "MaxHealth",
+     "type": "float"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": false,
+     "name": "bBroken",
+     "type": "bool"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": false,
+     "name": "bLocked",
+     "type": "bool"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": false,
+     "name": "bOpen",
+     "type": "bool"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": false,
+     "name": "bRequiresJanitorKey",
+     "type": "bool"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": false,
+     "name": "bStartsOpen",
+     "type": "bool"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOEntryPoint",
+     "default": false,
+     "name": "bUnbreakable",
+     "type": "bool"
+    }
+   ]
+  },
+  {
+   "description": "",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "",
+   "kind": "FontFace",
+   "parentClass": "",
+   "path": "/DreamPalette/Fonts/F_DreamKalamBold",
+   "purchasedViaParent": [],
+   "stubParent": "",
+   "variables": []
+  },
+  {
+   "description": "A heavy swing item: 25 damage per hit (shows the crowbar model until a bat model exists).",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "Pranks",
+   "kind": "Blueprint",
+   "parentClass": "/Game/SchoolsOut/Blueprints/Items/BP_MeleeBase.BP_MeleeBase_C",
+   "path": "/DreamPalette/Items/BP_Bat",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": [
+    {
+     "access": "readwrite",
+     "category": "Native|SOMeleeItem",
+     "default": 0.25,
+     "name": "HitCooldown",
+     "type": "float"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOMeleeItem",
+     "default": 25.0,
+     "name": "HitDamage",
+     "type": "float"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOMeleeItem",
+     "default": 2500.0,
+     "name": "HitNoiseRadius",
+     "type": "float"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOItem",
+     "default": 3.0,
+     "name": "MassKg",
+     "type": "float"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOMeleeItem",
+     "default": 50.0,
+     "name": "MinHitSpeed",
+     "type": "float"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOItem",
+     "default": true,
+     "name": "bAllowDistanceGrab",
+     "type": "bool"
+    }
+   ]
+  },
+  {
+   "description": "A crowbar: swing it at a door or window until it gives. Loud.",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "Pranks",
+   "kind": "Blueprint",
+   "parentClass": "/Game/SchoolsOut/Blueprints/Items/BP_MeleeBase.BP_MeleeBase_C",
+   "path": "/DreamPalette/Items/BP_Crowbar",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": [
+    {
+     "access": "readwrite",
+     "category": "Native|SOMeleeItem",
+     "default": 0.25,
+     "name": "HitCooldown",
+     "type": "float"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOMeleeItem",
+     "default": 15.0,
+     "name": "HitDamage",
+     "type": "float"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOMeleeItem",
+     "default": 2500.0,
+     "name": "HitNoiseRadius",
+     "type": "float"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOItem",
+     "default": 3.0,
+     "name": "MassKg",
+     "type": "float"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOMeleeItem",
+     "default": 50.0,
+     "name": "MinHitSpeed",
+     "type": "float"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOItem",
+     "default": true,
+     "name": "bAllowDistanceGrab",
+     "type": "bool"
+    }
+   ]
+  },
+  {
+   "description": "Squeeze it on the floor and whoever runs through the puddle slips.",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "Pranks",
+   "kind": "Blueprint",
+   "parentClass": "/Game/SchoolsOut/Blueprints/Items/BP_DishSoap.BP_DishSoap_C",
+   "path": "/DreamPalette/Items/BP_DishSoap",
+   "purchasedViaParent": [
+    "/Game/ProSoundCollectionMONO/Water/Cues/water_drops_drips_multiple_18_Cue",
+    "/Game/ProSoundCollectionMONO/Water/Wavs/water_drops_drips_multiple_18"
+   ],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": [
+    {
+     "access": "readwrite",
+     "category": "Native|SOItem",
+     "default": 0.6000000238418579,
+     "name": "MassKg",
+     "type": "float"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOItem",
+     "default": true,
+     "name": "bAllowDistanceGrab",
+     "type": "bool"
+    }
+   ]
+  },
+  {
+   "description": "A throwable egg that splats on impact.",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [
+    {
+     "inputs": [],
+     "name": "DescribeEgg",
+     "outputs": [
+      {
+       "name": "Description",
+       "type": "string"
+      }
+     ]
+    }
+   ],
+   "group": "Pranks",
+   "kind": "Blueprint",
+   "parentClass": "/Game/SchoolsOut/Blueprints/Items/BP_Egg.BP_Egg_C",
+   "path": "/DreamPalette/Items/BP_Egg",
+   "purchasedViaParent": [
+    "/Game/ProSoundCollection/GunsWeapons/Bullets/Cues/bullet_impact_body_flesh_07_Cue",
+    "/Game/ProSoundCollection/GunsWeapons/Bullets/Wavs/bullet_impact_body_flesh_07"
+   ],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": [
+    {
+     "access": "readwrite",
+     "category": "Native|SOEgg",
+     "default": 250.0,
+     "name": "BreakSpeed",
+     "type": "float"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOItem",
+     "default": 0.05999999865889549,
+     "name": "MassKg",
+     "type": "float"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOItem",
+     "default": true,
+     "name": "bAllowDistanceGrab",
+     "type": "bool"
+    }
+   ]
+  },
+  {
+   "description": "A carton of eggs: hold it in one hand, pull an egg out with the other.",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "Pranks",
+   "kind": "Blueprint",
+   "parentClass": "/Game/SchoolsOut/Blueprints/Items/BP_EggCarton.BP_EggCarton_C",
+   "path": "/DreamPalette/Items/BP_EggCarton",
+   "purchasedViaParent": [
+    "/Game/ProSoundCollection/GunsWeapons/Bullets/Cues/bullet_impact_body_flesh_07_Cue",
+    "/Game/ProSoundCollection/GunsWeapons/Bullets/Wavs/bullet_impact_body_flesh_07"
+   ],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": [
+    {
+     "access": "readwrite",
+     "category": "Native|SOItem",
+     "default": 0.699999988079071,
+     "name": "MassKg",
+     "type": "float"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOItem",
+     "default": true,
+     "name": "bAllowDistanceGrab",
+     "type": "bool"
+    }
+   ]
+  },
+  {
+   "description": "A flat wall panel that takes spray paint; rotate and scale it to fit.",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "Pranks",
+   "kind": "Blueprint",
+   "parentClass": "/Script/SchoolsOut.SOPaintableWall",
+   "path": "/DreamPalette/Items/BP_PaintableWall",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": []
+  },
+  {
+   "description": "A loose page of school paper to grab, throw or hide.",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "Pranks",
+   "kind": "Blueprint",
+   "parentClass": "/Game/SchoolsOut/Blueprints/Items/BP_SchoolPaperPage.BP_SchoolPaperPage_C",
+   "path": "/DreamPalette/Items/BP_SchoolPaperPage",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": [
+    {
+     "access": "readwrite",
+     "category": "Native|SOItem",
+     "default": 0.019999999552965164,
+     "name": "MassKg",
+     "type": "float"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOItem",
+     "default": true,
+     "name": "bAllowDistanceGrab",
+     "type": "bool"
+    }
+   ]
+  },
+  {
+   "description": "A can of silly string to spray at people and walls.",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "Pranks",
+   "kind": "Blueprint",
+   "parentClass": "/Game/SchoolsOut/Blueprints/Items/BP_SillyString.BP_SillyString_C",
+   "path": "/DreamPalette/Items/BP_SillyString",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": [
+    {
+     "access": "readwrite",
+     "category": "Native|SOItem",
+     "default": 0.4000000059604645,
+     "name": "MassKg",
+     "type": "float"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOItem",
+     "default": true,
+     "name": "bAllowDistanceGrab",
+     "type": "bool"
+    }
+   ]
+  },
+  {
+   "description": "A slingshot that fires whatever you load into it.",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "Pranks",
+   "kind": "Blueprint",
+   "parentClass": "/Game/SchoolsOut/Blueprints/Items/BP_Slingshot.BP_Slingshot_C",
+   "path": "/DreamPalette/Items/BP_Slingshot",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": [
+    {
+     "access": "readwrite",
+     "category": "Native|SOItem",
+     "default": 0.30000001192092896,
+     "name": "MassKg",
+     "type": "float"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOItem",
+     "default": true,
+     "name": "bAllowDistanceGrab",
+     "type": "bool"
+    }
+   ]
+  },
+  {
+   "description": "A slippery puddle of dish soap; anyone running through it goes down.",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "Pranks",
+   "kind": "Blueprint",
+   "parentClass": "/Game/SchoolsOut/Blueprints/Items/BP_SoapPuddle.BP_SoapPuddle_C",
+   "path": "/DreamPalette/Items/BP_SoapPuddle",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": []
+  },
+  {
+   "description": "A can of spray paint for painting a paintable wall.",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "Pranks",
+   "kind": "Blueprint",
+   "parentClass": "/Game/SchoolsOut/Blueprints/Items/BP_SprayPaint.BP_SprayPaint_C",
+   "path": "/DreamPalette/Items/BP_SprayPaint",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": [
+    {
+     "access": "readwrite",
+     "category": "Native|SOItem",
+     "default": 0.4000000059604645,
+     "name": "MassKg",
+     "type": "float"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOItem",
+     "default": true,
+     "name": "bAllowDistanceGrab",
+     "type": "bool"
+    }
+   ]
+  },
+  {
+   "description": "The detention cell door: unbreakable, locked by the janitor, opened with a key.",
+   "directPurchasedRefs": [],
+   "dispatchers": [
+    {
+     "name": "OnEntryPointBroken",
+     "params": []
+    },
+    {
+     "name": "OnEntryPointClosed",
+     "params": []
+    },
+    {
+     "name": "OnEntryPointLocked",
+     "params": []
+    },
+    {
+     "name": "OnEntryPointOpened",
+     "params": []
+    },
+    {
+     "name": "OnEntryPointUnlocked",
+     "params": []
+    }
+   ],
+   "functions": [
+    {
+     "inputs": [
+      {
+       "name": "Damage",
+       "type": "float"
+      },
+      {
+       "name": "DamageCauser",
+       "type": "actor"
+      }
+     ],
+     "name": "ApplyBreakDamage",
+     "outputs": []
+    },
+    {
+     "inputs": [],
+     "name": "Lock",
+     "outputs": []
+    },
+    {
+     "inputs": [
+      {
+       "name": "bNewOpen",
+       "type": "bool"
+      }
+     ],
+     "name": "SetOpen",
+     "outputs": []
+    },
+    {
+     "inputs": [
+      {
+       "name": "ByActor",
+       "type": "actor"
+      }
+     ],
+     "name": "TryUnlock",
+     "outputs": [
+      {
+       "name": "ReturnValue",
+       "type": "bool"
+      }
+     ]
+    }
+   ],
+   "group": "Janitor",
+   "kind": "Blueprint",
+   "parentClass": "/DreamPalette/Entry/BP_Door_Single.BP_Door_Single_C",
+   "path": "/DreamPalette/JanitorKit/BP_DetentionCellDoor",
+   "purchasedViaParent": [],
+   "stubParent": "/DreamPalette/Entry/BP_Door_Single.BP_Door_Single_C",
+   "variables": [
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": -1,
+     "name": "CashRewardOverride",
+     "type": "int"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": 100.0,
+     "name": "Health",
+     "type": "float"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOEntryPoint",
+     "default": 100.0,
+     "name": "MaxHealth",
+     "type": "float"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": false,
+     "name": "bBroken",
+     "type": "bool"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": false,
+     "name": "bLocked",
+     "type": "bool"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": false,
+     "name": "bOpen",
+     "type": "bool"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": false,
+     "name": "bRequiresJanitorKey",
+     "type": "bool"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOEntryPoint",
+     "default": false,
+     "name": "bStartsOpen",
+     "type": "bool"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOEntryPoint",
+     "default": false,
+     "name": "bUnbreakable",
+     "type": "bool"
+    }
+   ]
+  },
+  {
+   "description": "Where the janitor drops a caught player: place it on the cell floor, inside the cell mesh.",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "Janitor",
+   "kind": "Blueprint",
+   "parentClass": "/Game/SchoolsOut/Detention/BP_DetentionRoom.BP_DetentionRoom_C",
+   "path": "/DreamPalette/JanitorKit/BP_DetentionRoom",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": []
+  },
+  {
+   "description": "The AI janitor: patrols, hears noise, chases, catches and carries players to the detention cell.",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "Janitor",
+   "kind": "Blueprint",
+   "parentClass": "/Game/SchoolsOut/AI/BP_Janitor.BP_Janitor_C",
+   "path": "/DreamPalette/JanitorKit/BP_Janitor",
+   "purchasedViaParent": [
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Concrete/concrete_1",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Concrete/concrete_2",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Concrete/concrete_3",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Concrete/concrete_4",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Concrete/concrete_5",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Concrete/concrete_6",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Grass/grass_1",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Grass/grass_2",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Grass/grass_3",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Grass/grass_4",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Grass/grass_5",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Grass/grass_6",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Gravel/gravel_1",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Gravel/gravel_2",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Gravel/gravel_3",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Gravel/gravel_4",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Gravel/gravel_5",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Gravel/gravel_6",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Ground/ground_1",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Ground/ground_2",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Ground/ground_3",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Ground/ground_4",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Ground/ground_5",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Ground/ground_6",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Metal/metal_1",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Metal/metal_2",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Metal/metal_3",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Metal/metal_4",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Metal/metal_5",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Metal/metal_6",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Snow/snow_1",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Snow/snow_2",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Snow/snow_3",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Snow/snow_4",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Snow/snow_5",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Snow/snow_6",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Water/water_1",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Water/water_2",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Water/water_3",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Water/water_4",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Water/water_5",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Water/water_6",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Wood/wood_1",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Wood/wood_2",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Wood/wood_3",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Wood/wood_4",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Wood/wood_5",
+    "/Game/FootstepSound/WaveFiles/Footsteps_Mono/Wood/wood_6"
+   ],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": [
+    {
+     "access": "readwrite",
+     "category": "Dream",
+     "default": "/DreamPalette/JanitorKit/DA_JanitorConfig.DA_JanitorConfig",
+     "name": "JanitorConfig",
+     "type": "object:/DreamPalette/JanitorKit/BP_JanitorConfig.BP_JanitorConfig_C"
+    }
+   ]
+  },
+  {
+   "description": "The class of a janitor config: copy DA_JanitorConfig instead of making one from scratch.",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "Janitor",
+   "kind": "Blueprint",
+   "parentClass": "/Script/SchoolsOut.SODreamJanitorConfig",
+   "path": "/DreamPalette/JanitorKit/BP_JanitorConfig",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.PrimaryDataAsset",
+   "variables": [
+    {
+     "access": "readwrite",
+     "category": "Native|SODreamJanitorConfig",
+     "default": 400,
+     "name": "ChaseSpeed",
+     "type": "int"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SODreamJanitorConfig",
+     "default": 60,
+     "name": "DetentionSeconds",
+     "type": "int"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SODreamJanitorConfig",
+     "default": 1500,
+     "name": "HearingRange",
+     "type": "int"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SODreamJanitorConfig",
+     "default": 100,
+     "name": "PatrolSpeed",
+     "type": "int"
+    }
+   ]
+  },
+  {
+   "description": "A point the janitor walks to on patrol; place two or more on the floor where he can walk.",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "Janitor",
+   "kind": "Blueprint",
+   "parentClass": "/Script/Engine.TargetPoint",
+   "path": "/DreamPalette/JanitorKit/BP_JanitorPatrolPoint",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.TargetPoint",
+   "variables": []
+  },
+  {
+   "description": "The janitor numbers you may change: patrol and chase speed, hearing range and detention seconds.",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "Janitor",
+   "kind": "BP_JanitorConfig_C",
+   "parentClass": "",
+   "path": "/DreamPalette/JanitorKit/DA_JanitorConfig",
+   "purchasedViaParent": [],
+   "stubParent": "",
+   "variables": []
+  },
+  {
+   "description": "The whole janitor kit pre-wired: janitor, three patrol points, a cell with its door, navmesh bounds.",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "Janitor",
+   "kind": "World",
+   "parentClass": "",
+   "path": "/DreamPalette/JanitorKit/LI_JanitorWing",
+   "purchasedViaParent": [],
+   "stubParent": "",
+   "variables": []
+  },
+  {
+   "description": "",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "",
+   "kind": "Blueprint",
+   "parentClass": "/Script/SchoolsOut.SODreamBreakGoal",
+   "path": "/DreamPalette/Nightmare/BP_DreamBreakGoal",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": []
+  },
+  {
+   "description": "",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "",
+   "kind": "Blueprint",
+   "parentClass": "/Script/SchoolsOut.SODreamPlayerJanitorRole",
+   "path": "/DreamPalette/Nightmare/BP_DreamPlayerJanitor",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": []
+  },
+  {
+   "description": "",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "",
+   "kind": "Blueprint",
+   "parentClass": "/Script/SchoolsOut.SODreamRespawnPoint",
+   "path": "/DreamPalette/Nightmare/BP_DreamRespawnPoint",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": []
+  },
+  {
+   "description": "",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "",
+   "kind": "Blueprint",
+   "parentClass": "/Script/SchoolsOut.SODreamSuctionFlashlight",
+   "path": "/DreamPalette/Nightmare/BP_DreamSuctionFlashlight",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": []
+  },
+  {
+   "description": "",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "",
+   "kind": "Blueprint",
+   "parentClass": "/Script/SchoolsOut.SODreamThrowStun",
+   "path": "/DreamPalette/Nightmare/BP_DreamThrowStun",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": []
+  },
+  {
+   "description": "",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "",
+   "kind": "Material",
+   "parentClass": "",
+   "path": "/DreamPalette/Nightmare/M_DreamSuctionCone",
+   "purchasedViaParent": [],
+   "stubParent": "",
+   "variables": []
+  },
+  {
+   "description": "",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "",
+   "kind": "Material",
+   "parentClass": "",
+   "path": "/DreamPalette/Nightmare/M_DreamVeil",
+   "purchasedViaParent": [],
+   "stubParent": "",
+   "variables": []
+  },
+  {
+   "description": "A classroom chair that can be smashed.",
+   "directPurchasedRefs": [],
+   "dispatchers": [
+    {
+     "name": "OnBroken",
+     "params": []
+    }
+   ],
+   "functions": [
+    {
+     "inputs": [
+      {
+       "name": "Damage",
+       "type": "float"
+      },
+      {
+       "name": "DamageCauser",
+       "type": "actor"
+      }
+     ],
+     "name": "ApplyBreakDamage",
+     "outputs": []
+    }
+   ],
+   "group": "Breakables",
+   "kind": "Blueprint",
+   "parentClass": "/Game/SchoolsOut/Blueprints/Props/BP_Chair.BP_Chair_C",
+   "path": "/DreamPalette/Props/BP_Chair",
+   "purchasedViaParent": [
+    "/Game/Crash_and_Smash-Designed/cues/wood_crash_designed_001_Cue",
+    "/Game/Crash_and_Smash-Designed/wavs/wood_crash_designed_001",
+    "/Game/ProSoundCollectionMONO/GunsWeapons/Bullets/Cues/bullet_impact_wood_heavy_01_Cue",
+    "/Game/ProSoundCollectionMONO/GunsWeapons/Bullets/Wavs/bullet_impact_wood_heavy_01"
+   ],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": [
+    {
+     "access": "read",
+     "category": "Native|SOBreakableProp",
+     "default": -1,
+     "name": "CashRewardOverride",
+     "type": "int"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOBreakableProp",
+     "default": 100.0,
+     "name": "Health",
+     "type": "float"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOBreakableProp",
+     "default": 80.0,
+     "name": "MaxHealth",
+     "type": "float"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOBreakableProp",
+     "default": false,
+     "name": "bBroken",
+     "type": "bool"
+    }
+   ]
+  },
+  {
+   "description": "A two-tier school locker that can be smashed.",
+   "directPurchasedRefs": [],
+   "dispatchers": [
+    {
+     "name": "OnBroken",
+     "params": []
+    }
+   ],
+   "functions": [
+    {
+     "inputs": [
+      {
+       "name": "Damage",
+       "type": "float"
+      },
+      {
+       "name": "DamageCauser",
+       "type": "actor"
+      }
+     ],
+     "name": "ApplyBreakDamage",
+     "outputs": []
+    }
+   ],
+   "group": "Breakables",
+   "kind": "Blueprint",
+   "parentClass": "/Game/SchoolsOut/Blueprints/Props/BP_Locker_DoubleTier.BP_Locker_DoubleTier_C",
+   "path": "/DreamPalette/Props/BP_Locker_DoubleTier",
+   "purchasedViaParent": [
+    "/Game/Crash_and_Smash-Designed/cues/metal_crash_designed_001_Cue",
+    "/Game/Crash_and_Smash-Designed/wavs/metal_crash_designed_001",
+    "/Game/ProSoundCollectionMONO/GunsWeapons/Bullets/Cues/bullet_impact_metal_heavy_01_Cue",
+    "/Game/ProSoundCollectionMONO/GunsWeapons/Bullets/Wavs/bullet_impact_metal_heavy_01"
+   ],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": [
+    {
+     "access": "read",
+     "category": "Native|SOBreakableProp",
+     "default": -1,
+     "name": "CashRewardOverride",
+     "type": "int"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOBreakableProp",
+     "default": 100.0,
+     "name": "Health",
+     "type": "float"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOBreakableProp",
+     "default": 120.0,
+     "name": "MaxHealth",
+     "type": "float"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOBreakableProp",
+     "default": false,
+     "name": "bBroken",
+     "type": "bool"
+    }
+   ]
+  },
+  {
+   "description": "A single-tier school locker that can be smashed.",
+   "directPurchasedRefs": [],
+   "dispatchers": [
+    {
+     "name": "OnBroken",
+     "params": []
+    }
+   ],
+   "functions": [
+    {
+     "inputs": [
+      {
+       "name": "Damage",
+       "type": "float"
+      },
+      {
+       "name": "DamageCauser",
+       "type": "actor"
+      }
+     ],
+     "name": "ApplyBreakDamage",
+     "outputs": []
+    }
+   ],
+   "group": "Breakables",
+   "kind": "Blueprint",
+   "parentClass": "/Game/SchoolsOut/Blueprints/Props/BP_Locker_Single.BP_Locker_Single_C",
+   "path": "/DreamPalette/Props/BP_Locker_Single",
+   "purchasedViaParent": [
+    "/Game/Crash_and_Smash-Designed/cues/metal_crash_designed_001_Cue",
+    "/Game/Crash_and_Smash-Designed/wavs/metal_crash_designed_001",
+    "/Game/ProSoundCollectionMONO/GunsWeapons/Bullets/Cues/bullet_impact_metal_heavy_01_Cue",
+    "/Game/ProSoundCollectionMONO/GunsWeapons/Bullets/Wavs/bullet_impact_metal_heavy_01"
+   ],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": [
+    {
+     "access": "read",
+     "category": "Native|SOBreakableProp",
+     "default": -1,
+     "name": "CashRewardOverride",
+     "type": "int"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOBreakableProp",
+     "default": 100.0,
+     "name": "Health",
+     "type": "float"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOBreakableProp",
+     "default": 120.0,
+     "name": "MaxHealth",
+     "type": "float"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOBreakableProp",
+     "default": false,
+     "name": "bBroken",
+     "type": "bool"
+    }
+   ]
+  },
+  {
+   "description": "A school book you can pick up and throw.",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "Pranks",
+   "kind": "Blueprint",
+   "parentClass": "/Game/SchoolsOut/Blueprints/Props/BP_SchoolBook.BP_SchoolBook_C",
+   "path": "/DreamPalette/Props/BP_SchoolBook",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": []
+  },
+  {
+   "description": "A classroom TV that can be smashed.",
+   "directPurchasedRefs": [],
+   "dispatchers": [
+    {
+     "name": "OnBroken",
+     "params": []
+    }
+   ],
+   "functions": [
+    {
+     "inputs": [
+      {
+       "name": "Damage",
+       "type": "float"
+      },
+      {
+       "name": "DamageCauser",
+       "type": "actor"
+      }
+     ],
+     "name": "ApplyBreakDamage",
+     "outputs": []
+    }
+   ],
+   "group": "Breakables",
+   "kind": "Blueprint",
+   "parentClass": "/Game/SchoolsOut/Blueprints/Props/BP_TV.BP_TV_C",
+   "path": "/DreamPalette/Props/BP_TV",
+   "purchasedViaParent": [
+    "/Game/Crash_and_Smash-Designed/cues/plastic_crash_designed_001_Cue",
+    "/Game/Crash_and_Smash-Designed/wavs/plastic_crash_designed_001",
+    "/Game/ProSoundCollectionMONO/GunsWeapons/Bullets/Cues/bullet_impact_wood_light_01_Cue",
+    "/Game/ProSoundCollectionMONO/GunsWeapons/Bullets/Wavs/bullet_impact_wood_light_01"
+   ],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": [
+    {
+     "access": "read",
+     "category": "Native|SOBreakableProp",
+     "default": -1,
+     "name": "CashRewardOverride",
+     "type": "int"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOBreakableProp",
+     "default": 100.0,
+     "name": "Health",
+     "type": "float"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOBreakableProp",
+     "default": 120.0,
+     "name": "MaxHealth",
+     "type": "float"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOBreakableProp",
+     "default": false,
+     "name": "bBroken",
+     "type": "bool"
+    }
+   ]
+  },
+  {
+   "description": "A teacher desk that can be smashed.",
+   "directPurchasedRefs": [],
+   "dispatchers": [
+    {
+     "name": "OnBroken",
+     "params": []
+    }
+   ],
+   "functions": [
+    {
+     "inputs": [
+      {
+       "name": "Damage",
+       "type": "float"
+      },
+      {
+       "name": "DamageCauser",
+       "type": "actor"
+      }
+     ],
+     "name": "ApplyBreakDamage",
+     "outputs": []
+    }
+   ],
+   "group": "Breakables",
+   "kind": "Blueprint",
+   "parentClass": "/Game/SchoolsOut/Blueprints/Props/BP_TeacherDesk.BP_TeacherDesk_C",
+   "path": "/DreamPalette/Props/BP_TeacherDesk",
+   "purchasedViaParent": [
+    "/Game/Crash_and_Smash-Designed/cues/wood_crash_designed_001_Cue",
+    "/Game/Crash_and_Smash-Designed/wavs/wood_crash_designed_001",
+    "/Game/ProSoundCollectionMONO/Miscellaneous/Wood/Cues/wood_tree_branch_break_01_Cue",
+    "/Game/ProSoundCollectionMONO/Miscellaneous/Wood/Wavs/wood_tree_branch_break_01"
+   ],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": [
+    {
+     "access": "read",
+     "category": "Native|SOBreakableProp",
+     "default": -1,
+     "name": "CashRewardOverride",
+     "type": "int"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOBreakableProp",
+     "default": 100.0,
+     "name": "Health",
+     "type": "float"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOBreakableProp",
+     "default": 100.0,
+     "name": "MaxHealth",
+     "type": "float"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOBreakableProp",
+     "default": false,
+     "name": "bBroken",
+     "type": "bool"
+    }
+   ]
+  },
+  {
+   "description": "A bathroom toilet that can be smashed.",
+   "directPurchasedRefs": [],
+   "dispatchers": [
+    {
+     "name": "OnBroken",
+     "params": []
+    }
+   ],
+   "functions": [
+    {
+     "inputs": [
+      {
+       "name": "Damage",
+       "type": "float"
+      },
+      {
+       "name": "DamageCauser",
+       "type": "actor"
+      }
+     ],
+     "name": "ApplyBreakDamage",
+     "outputs": []
+    }
+   ],
+   "group": "Breakables",
+   "kind": "Blueprint",
+   "parentClass": "/Game/SchoolsOut/Blueprints/Props/BP_BR_Toilet.BP_BR_Toilet_C",
+   "path": "/DreamPalette/Props/BP_Toilet",
+   "purchasedViaParent": [
+    "/Game/Crash_and_Smash-Designed/cues/glass_crash_designed_001_Cue",
+    "/Game/Crash_and_Smash-Designed/wavs/glass_crash_designed_001",
+    "/Game/ProSoundCollectionMONO/GunsWeapons/Bullets/Cues/bullet_impact_glass_01_Cue",
+    "/Game/ProSoundCollectionMONO/GunsWeapons/Bullets/Wavs/bullet_impact_glass_01"
+   ],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": [
+    {
+     "access": "read",
+     "category": "Native|SOBreakableProp",
+     "default": -1,
+     "name": "CashRewardOverride",
+     "type": "int"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOBreakableProp",
+     "default": 100.0,
+     "name": "Health",
+     "type": "float"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOBreakableProp",
+     "default": 80.0,
+     "name": "MaxHealth",
+     "type": "float"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOBreakableProp",
+     "default": false,
+     "name": "bBroken",
+     "type": "bool"
+    }
+   ]
+  },
+  {
+   "description": "A trash bin that can be knocked about and smashed.",
+   "directPurchasedRefs": [],
+   "dispatchers": [
+    {
+     "name": "OnBroken",
+     "params": []
+    }
+   ],
+   "functions": [
+    {
+     "inputs": [
+      {
+       "name": "Damage",
+       "type": "float"
+      },
+      {
+       "name": "DamageCauser",
+       "type": "actor"
+      }
+     ],
+     "name": "ApplyBreakDamage",
+     "outputs": []
+    }
+   ],
+   "group": "Breakables",
+   "kind": "Blueprint",
+   "parentClass": "/Game/SchoolsOut/Blueprints/Props/BP_TrashBin1.BP_TrashBin1_C",
+   "path": "/DreamPalette/Props/BP_TrashBin",
+   "purchasedViaParent": [
+    "/Game/Crash_and_Smash-Designed/cues/metal_crash_designed_001_Cue",
+    "/Game/Crash_and_Smash-Designed/wavs/metal_crash_designed_001",
+    "/Game/ProSoundCollectionMONO/GunsWeapons/Bullets/Cues/bullet_impact_metal_heavy_01_Cue",
+    "/Game/ProSoundCollectionMONO/GunsWeapons/Bullets/Wavs/bullet_impact_metal_heavy_01"
+   ],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": [
+    {
+     "access": "read",
+     "category": "Native|SOBreakableProp",
+     "default": -1,
+     "name": "CashRewardOverride",
+     "type": "int"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOBreakableProp",
+     "default": 100.0,
+     "name": "Health",
+     "type": "float"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOBreakableProp",
+     "default": 120.0,
+     "name": "MaxHealth",
+     "type": "float"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOBreakableProp",
+     "default": false,
+     "name": "bBroken",
+     "type": "bool"
+    }
+   ]
+  },
+  {
+   "description": "A water fountain that can be smashed.",
+   "directPurchasedRefs": [],
+   "dispatchers": [
+    {
+     "name": "OnBroken",
+     "params": []
+    }
+   ],
+   "functions": [
+    {
+     "inputs": [
+      {
+       "name": "Damage",
+       "type": "float"
+      },
+      {
+       "name": "DamageCauser",
+       "type": "actor"
+      }
+     ],
+     "name": "ApplyBreakDamage",
+     "outputs": []
+    }
+   ],
+   "group": "Breakables",
+   "kind": "Blueprint",
+   "parentClass": "/Game/SchoolsOut/Blueprints/Props/BP_WaterFountain.BP_WaterFountain_C",
+   "path": "/DreamPalette/Props/BP_WaterFountain",
+   "purchasedViaParent": [
+    "/Game/Crash_and_Smash-Designed/cues/metal_crash_designed_001_Cue",
+    "/Game/Crash_and_Smash-Designed/wavs/metal_crash_designed_001",
+    "/Game/ProSoundCollectionMONO/GunsWeapons/Bullets/Cues/bullet_impact_metal_heavy_01_Cue",
+    "/Game/ProSoundCollectionMONO/GunsWeapons/Bullets/Wavs/bullet_impact_metal_heavy_01"
+   ],
+   "stubParent": "/Script/Engine.Actor",
+   "variables": [
+    {
+     "access": "read",
+     "category": "Native|SOBreakableProp",
+     "default": -1,
+     "name": "CashRewardOverride",
+     "type": "int"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOBreakableProp",
+     "default": 100.0,
+     "name": "Health",
+     "type": "float"
+    },
+    {
+     "access": "readwrite",
+     "category": "Native|SOBreakableProp",
+     "default": 80.0,
+     "name": "MaxHealth",
+     "type": "float"
+    },
+    {
+     "access": "read",
+     "category": "Native|SOBreakableProp",
+     "default": false,
+     "name": "bBroken",
+     "type": "bool"
+    }
+   ]
+  },
+  {
+   "description": "Where a player spawns; set PlayerStartTag to pick it from RespawnPlayer.",
+   "directPurchasedRefs": [],
+   "dispatchers": [],
+   "functions": [],
+   "group": "Spawning",
+   "kind": "Blueprint",
+   "parentClass": "/Script/VRExpansionPlugin.VRPlayerStart",
+   "path": "/DreamPalette/Spawn/BP_VRPlayerStart",
+   "purchasedViaParent": [],
+   "stubParent": "/Script/Engine.PlayerStart",
+   "variables": [
+    {
+     "access": "readwrite",
+     "category": "Native|VRPlayerStart",
+     "default": "None",
+     "name": "PlayerStartTag",
+     "type": "name"
+    }
+   ]
+  }
+ ],
+ "canonicalization": "sha256 of json.dumps({\"kitVersion\":..,\"assets\":[..]}, sort_keys=True, separators=(\",\",\":\")); assets sorted by path; directPurchasedRefs must be empty",
+ "kitVersion": "1.0",
+ "sha256": "d3a10a697a6b8e5d0b57b56106b4565039398af276a16be9dea6fd2644d989f1"
+}

@@ -15,8 +15,10 @@ Play Games screen and play with their Crew.
 
 ## Get the Kit
 
-Download the latest zip from the **Releases** page of this repository (none published yet), or clone the repository
-with Git LFS installed (`git lfs install`, then `git clone`).
+Download the latest zip from the **Releases** page of this repository, or clone the repository with Git LFS
+installed (`git lfs install`, then `git clone`). Unzip it anywhere and double-click `DreamsCreatorKit.uproject`: it
+opens in the launcher's Unreal Engine 5.8 with no compile. Press Play to try the Blank Template (WASD walk, mouse
+look, left click grab / use, right click throw, Space jump).
 
 ## How it works
 
@@ -37,3 +39,6 @@ Dreams for School's Out VR. It is not open source.
 ## Changelog
 
 - 2026-11-04: Repository created. Guide (preview) published. Kit project to follow.
+- 2026-11-05: Kit v1.0.0-preview. The Kit project: the Dream Palette as stand-ins (same paths and Blueprint API as the
+  game's pieces, on stock engine classes), the Blank Template Dream and a flat test player with the game's body size.
+  Not yet: the Dreams panel (New Dream, Validate, Submit), the Sandbox map, and the art-kit materials.

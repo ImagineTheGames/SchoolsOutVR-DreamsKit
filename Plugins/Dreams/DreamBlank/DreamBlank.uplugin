@@ -1,0 +1,32 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "Blank Template",
+	"Description": "The blank Dream template: a floor at player scale, four player starts, a light, a sky and a small API corner (an egg, a door and a button that ends the Dream). Copy it to start a new Dream.",
+	"Category": "Dream",
+	"CreatedBy": "",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"EnabledByDefault": false,
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Dream": {
+		"KitVersion": "1.0",
+		"Name": "Blank Template",
+		"Map": "/DreamBlank/Maps/Map_DreamBlank",
+		"MaxPlayers": 4,
+		"MinPlayers": 1,
+		"MatchSeconds": 600,
+		"Realm": "Dream",
+		"HowToPlay": [
+			"An empty field to build your own game on.",
+			"Press the button to end the Dream."
+		],
+		"Settings": {}
+	}
+}
