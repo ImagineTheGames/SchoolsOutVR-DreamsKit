@@ -88,7 +88,7 @@ always in the best interest of minors (art. 14). Your data is processed in the U
 made under LGPD art. 33, IX because it is needed to perform this Licence. We share it only with service providers and platforms
 needed to run the programme (such as mod.io). We keep submission records while your Dream is distributed and for 12 months after.
 We never sell it and never use a minor's data for advertising. If someone under 13 gives us data, we delete it. You may ask for
-access, correction or deletion through our privacy contact: [OWNER: privacy email]. More detail is in our Privacy Policy
+access, correction or deletion through our contact page (https://imagine-games.com/contact/). More detail is in our Privacy Policy
 (https://imagine-games.com/privacy-policy/). mod.io processes the data in your mod.io account under its own Privacy Policy.
 
 ## 9. No warranty; limited liability
@@ -113,4 +113,4 @@ small-claims court. If you are a consumer, you keep the protection of the mandat
 bring a claim in your local courts where those laws allow it; for residents of Brazil, this includes the Consumer Protection Code.
 
 ## 13. Contact
-Questions and removal requests: [OWNER: contact email], or through https://imagine-games.com/contact/
+Questions and removal requests: https://imagine-games.com/contact/
