@@ -23,6 +23,10 @@
 		{
 			"Name": "DreamBlank",
 			"Enabled": true
+		},
+		{
+			"Name": "DreamSandbox",
+			"Enabled": true
 		}
 	]
 }

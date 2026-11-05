@@ -1,0 +1,35 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "Sandbox",
+	"Description": "The Sandbox Dream: a 60 x 60 m lot with one zone per part of the Dreams Creator Kit. Copy it to start a Dream with everything in reach.",
+	"Category": "Dream",
+	"CreatedBy": "Imagine Games, LLC",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"EnabledByDefault": false,
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Dream": {
+		"KitVersion": "1.0",
+		"PaletteSha256": "d3a10a697a6b8e5d0b57b56106b4565039398af276a16be9dea6fd2644d989f1",
+		"Name": "Sandbox",
+		"Map": "/DreamSandbox/Maps/Map_DreamSandbox",
+		"MaxPlayers": 4,
+		"MinPlayers": 1,
+		"MatchSeconds": 600,
+		"Realm": "Dream",
+		"HowToPlay": [
+			"Walk the lot: every zone shows one part of the Kit.",
+			"Press the plaza button, throw an egg into the bin, climb the obby.",
+			"Copy this Dream with New Dream to start your own."
+		],
+		"Thumbnail": "/DreamSandbox/UI/T_SandboxThumb",
+		"PaletteSha256": "d3a10a697a6b8e5d0b57b56106b4565039398af276a16be9dea6fd2644d989f1"
+	}
+}

@@ -42,3 +42,4 @@ Dreams for School's Out VR. It is not open source.
 - 2026-11-05: Kit v1.0.0-preview. The Kit project: the Dream Palette as stand-ins (same paths and Blueprint API as the
   game's pieces, on stock engine classes), the Blank Template Dream and a flat test player with the game's body size.
   Not yet: the Dreams panel (New Dream, Validate, Submit), the Sandbox map, and the art-kit materials.
+- 2026-11-05: Kit v1.0.1-preview. New: the Dreams panel (New Dream from Blank, Place, Validate) and the Sandbox map (a 60 x 60 m lot with every device and prop). Validate is stricter (references outside the palette, out-of-date Kit, game-mode and read-only rules) and no longer warns about the height of every pedestal button and lever. Known gaps: spawner, pad and lock settings are missing in the Kit stubs, and volume devices only react to hands.

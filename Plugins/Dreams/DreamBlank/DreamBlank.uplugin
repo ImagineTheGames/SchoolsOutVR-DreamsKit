@@ -17,6 +17,7 @@
 	"Installed": false,
 	"Dream": {
 		"KitVersion": "1.0",
+		"PaletteSha256": "d3a10a697a6b8e5d0b57b56106b4565039398af276a16be9dea6fd2644d989f1",
 		"Name": "Blank Template",
 		"Map": "/DreamBlank/Maps/Map_DreamBlank",
 		"MaxPlayers": 4,

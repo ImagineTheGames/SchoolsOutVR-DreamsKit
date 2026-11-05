@@ -36,11 +36,14 @@ The real behaviour shows up when your Dream runs in the game. You will see it th
 
 ## How it works, start to finish
 
-1. **Build.** Open the Kit in Unreal Engine 5.8. Use the New Dream button in the Dreams panel. Place
-   pieces from the Palette and build your map.
+1. **Build.** Open the Kit in Unreal Engine 5.8. The Dreams panel opens by itself (if you close it, find it in
+   the **Dreams** menu at the top of the editor). Type a name and press **Create Dream**; the editor restarts
+   once to load your new Dream, then opens its map. Pick a group in the Palette and press **Place** on a piece
+   to drop it in front of you, on the floor (for example **Place BP_Egg**). Build your map.
 2. **Test in the editor.** Press Play. Walk around, grab things, check that the round starts and ends the
    way you want.
-3. **Check.** Press Validate. The Kit tells you what to fix and points at the exact asset.
+3. **Check.** Press Validate in the Dreams panel. You get PASS or FAIL. Each problem names the asset, and its
+   **Show** button takes you to it.
 4. **Submit.** Press Submit. The Kit sends your Dream to the Dreams Forge.
 5. **We build it for you.** The Dreams Forge makes the three game files: Windows, Quest and Steam Frame.
    You never have to cook, package or set up Android. You only send your project.
@@ -48,6 +51,9 @@ The real behaviour shows up when your Dream runs in the game. You will see it th
    your Dream's page on mod.io.
 
 A Dream goes live only when all three files are ready, so players on every device can play it together.
+
+In this early preview the **Submit** tab of the panel is a placeholder. New Dream, Place and Validate work now;
+Submit and the status line arrive in the next preview.
 
 ## How to read this guide
 

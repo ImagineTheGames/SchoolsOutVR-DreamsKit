@@ -56,6 +56,27 @@ When the match ends, everyone sees the recap board. The Continue button takes th
 Playground. Nobody gets stuck: the clock, the recap and the trip home all belong to the game, not to your
 Dream.
 
+## Loot from lockers and desks
+
+When a player smashes a locker or a desk from the Palette, it can drop a random item: a prank, slingshot
+pebbles, a crowbar now and then, or a little Lunch Money. Lockers drop 35% of the time, desks 20%. The game
+decides every drop, and every player sees the same item. Loot is on in every Dream unless you turn it off.
+
+Two of your own Settings control it:
+
+| Setting | What it does |
+| --- | --- |
+| `"Loot": "Off"` | No loot in your Dream. |
+| `"LootItems": "<item>=<weight>, <item>=<weight>"` | Your own list of what drops, instead of ours. |
+
+Each item in `LootItems` is the class path of a Palette item or one of your Dream's own items, then `=` and
+a weight. An item with weight 20 comes up twice as often as one with 10. For example:
+
+`"LootItems": "/DreamPalette/Items/BP_Egg.BP_Egg_C=20, /DreamPalette/Items/BP_Bat.BP_Bat_C=5"`
+
+Lockers and desks keep their drop chances; only the items change. Anything that is not a grabbable item is
+skipped, and the log says which one and why.
+
 ## Score and Lunch Money
 
 Your Dream's score is for the board and for contests. It does not change how much Lunch Money players earn.
